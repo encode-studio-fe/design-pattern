@@ -8,23 +8,23 @@ export default defineConfig4CustomTheme({
 			description: '设计模式深入浅出',
 		},
 	},
-
+	base: '/design-pattern/',
 	themeConfig: {
 		nav: [
 			{ text: '首页', link: '/index.md' },
 			{
 				text: '设计模式',
-				items: [{ text: '创建者模式', link: '/designPatterns/creational/index.md' }],
+				items: [{ text: '创建者模式', link: '/creational/index.md' }],
 			},
 		],
 		sidebar: [
 			{
 				title: '创建者模式',
-				path: '/designPatterns/creational',
+				path: '/creational',
 				children: [
 					{
 						title: '工厂模式',
-						path: '/designPatterns/creational/factory.md',
+						path: '/creational/factory.md',
 					},
 				],
 			},

@@ -3,7 +3,7 @@ home: true
 heroText: 印客学院
 tagline: 设计模式深入浅出
 actionText: 立刻进入 →
-actionLink: /designPatterns/creational/index.md
+actionLink: /creational/index.md
 
 features:
     - title: 完备的设计模式内容
