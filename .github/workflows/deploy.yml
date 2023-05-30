@@ -12,10 +12,8 @@ jobs:
 
             - name: Install and Build
               run: |
-                  npm i -g pnpm nvm
-                  nvm install 16.18.0
-                  nvm use 16.18.0
-                  pnpm install
+                  npm i -g pnpm
+                  pnpm run init
                   pnpm run docs:build
               env:
                   NODE_OPTIONS: '--max_old_space_size=4096'
