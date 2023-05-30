@@ -1,5 +1,5 @@
 {
-  "name": "@encode/design-patterns",
+  "name": "@encode/design-pattern",
   "version": "0.0.1",
   "description": "印客学院--设计模式深入浅出",
   "main": "dist/index.js",
