@@ -12,9 +12,9 @@ jobs:
 
             - name: lock npm version
               uses: actions/setup-node@v3
-                with:
+              with:
                   node-version: 16.18.0
-                  
+
             - name: Install and Build
               run: |
                   npm i -g pnpm
