@@ -1,4 +1,4 @@
-# @encode/design-patterns
+# encode-design-pattern
 
 > 印客学院 设计模式深入浅出
 
@@ -41,4 +41,5 @@
 ## :email: 联系
 
 -   **印客学院官网**: <http://encodestudio.cn>
+-   **设计模式深入浅出** <https://encode-studio-fe.github.io/design-pattern/>
 -   **GitHub**: <https://github.com/encode-studio-fe/design-pattern>
