@@ -1,8 +1,9 @@
 {
   "name": "@encode/design-patterns",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "印客学院--设计模式深入浅出",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "init": "rm -rf node_modules && pnpm install",
