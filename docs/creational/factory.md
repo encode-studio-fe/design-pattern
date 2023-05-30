@@ -27,7 +27,7 @@ author:
 
 ## 结构
 
-![factory_structure](/img/factory_structure.png)
+![factory_structure](./factory_structure.png)
 
 1. 产品 （`Product`）:将会对接口进行声明。 对于所有由创建者及其子类构建的对象， 这些接口都是通用的。
 2. 具体产品 （`Concrete Products`） 是产品接口的不同实现。
