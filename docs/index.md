@@ -6,7 +6,7 @@ actionText: 立刻进入 →
 actionLink: /creational/index.md
 
 features:
-    - title: 完备的设计模式内容
+    - title: 完备的设计模式
       details: 提供 GOF 中全部的设计模式，包含全部内容讲解及实际代码演示
     - title: 支持 Typescript
       details: 提供完整的类型注释，帮助您从 0~1 掌握完整的代码规范
