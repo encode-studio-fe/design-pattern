@@ -1,4 +1,4 @@
-name: npm Push
+name: Npm Push
 
 on:
     push:
@@ -21,7 +21,7 @@ jobs:
               run: |
                   npm i -g pnpm
                   pnpm run init
-                  pnpm run docs:build
+                  pnpm run build
               env:
                   NODE_OPTIONS: '--max_old_space_size=4096'
 
