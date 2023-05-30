@@ -11,7 +11,7 @@ features:
     - title: 支持 Typescript
       details: 提供完整的类型注释，帮助您从 0~1 掌握完整的代码规范
     - title: 全套的测试用例
-      details: 配套完整的测试用例，帮助您掌握完整使用
+      details: 配套完整的测试用例，帮助您完整掌握
 ---
 
 ## :star: 设计目的
