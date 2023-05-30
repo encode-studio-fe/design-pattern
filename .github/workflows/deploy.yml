@@ -12,7 +12,9 @@ jobs:
 
             - name: Install and Build
               run: |
-                  npm i -g pnpm
+                  npm i -g pnpm nvm
+                  nvm install 16.18.0
+                  nvm use 16.18.0
                   pnpm install
                   pnpm run docs:build
               env:
