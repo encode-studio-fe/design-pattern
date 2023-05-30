@@ -1,0 +1,8 @@
+{
+	"exclude": ["**/**(test|spec|mock).ts"],
+	"disableSources": true,
+	"excludeExternals": true,
+	"readme": "none",
+	"out": "tsdoc",
+	"tsconfig": "tsconfig.test.json"
+}

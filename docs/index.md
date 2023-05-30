@@ -1,20 +1,18 @@
-# @encode/design-patterns
+---
+home: true
+heroText: 印客学院
+tagline: 设计模式深入浅出
+actionText: 立刻进入 →
+actionLink: /designPatterns/creational/index.md
 
-> 印客学院 设计模式深入浅出
-
-## :mountain: 能力支持
-
-### 1. 完备的设计模式内容
-
-提供 GOF 中全部的设计模式，包含全部内容讲解及实际代码演示
-
-### 2. 支持 Typescript
-
-提供完整的类型注释，帮助您从 0~1 掌握完整的代码规范
-
-### 3. 全套的测试用例
-
-配套完整的测试用例，帮助您掌握完整使用
+features:
+    - title: 完备的设计模式内容
+      details: 提供 GOF 中全部的设计模式，包含全部内容讲解及实际代码演示
+    - title: 支持 Typescript
+      details: 提供完整的类型注释，帮助您从 0~1 掌握完整的代码规范
+    - title: 全套的测试用例
+      details: 配套完整的测试用例，帮助您掌握完整使用
+---
 
 ## :star: 设计目的
 

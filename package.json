@@ -1,0 +1,45 @@
+{
+  "name": "@encode/design-patterns",
+  "version": "1.0.0",
+  "description": "印客学院--设计模式深入浅出",
+  "main": "index.js",
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "init": "rm -rf node_modules && pnpm install",
+    "dev": "tsup src/index.ts --format esm,cjs --watch --dts",
+    "build": "tsup src/index.ts --format esm,cjs --dts",
+    "doc:types": "typedoc",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs",
+    "deploy": "bash deploy.sh",
+    "test": "jest"
+  },
+  "files": [
+    "dist",
+    "package.json",
+    "README.md"
+  ],
+  "keywords": [
+    "encode",
+    "design patterns",
+    "ddd"
+  ],
+  "author": "chenghuai",
+  "license": "ISC",
+  "devDependencies": {
+    "@jest/types": "^29.5.0",
+    "@types/jest": "^29.0.0",
+    "dayjs": "^1.9.7",
+    "jest": "^29.0.0",
+    "ts-jest": "^29.1.0",
+    "ts-node": "^10.9.1",
+    "tslib": "^2.5.2",
+    "tsup": "^6.7.0",
+    "typedoc": "^0.24.7",
+    "typescript": "^5.0.4",
+    "vue-template-compiler": "^2.7.14",
+    "vuepress": "^1.9.9",
+    "vuepress-plugin-one-click-copy": "^1.0.2",
+    "vuepress-plugin-zooming": "^1.1.7"
+  }
+}
