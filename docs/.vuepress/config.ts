@@ -26,18 +26,33 @@ export default defineConfig4CustomTheme({
 						title: '工厂模式',
 						path: '/creational/factory.md',
 					},
+					{
+						title: '抽象工厂模式',
+						path: '/creational/abstract_factory.md',
+					},
+					{
+						title: '生成器模式',
+						path: '/creational/builder.md',
+					},
+					{
+						title: '原型模式',
+						path: '/creational/prototype.md',
+					},
+					{
+						title: '单例模式',
+						path: '/creational/singleton.md',
+					},
 				],
 			},
 		],
 		logo: '/img/logo.png',
 		repo: 'encode-studio-fe/design-pattern',
 		searchMaxSuggestions: 10,
-		lastUpdated: '上次更新',
 		docsDir: 'docs',
 		footer: {
 			createYear: 2023,
 			copyrightInfo:
-				'Evan Xu | <a href="https://github.com/encode-studio-fe/design-pattern" target="_blank">github</a>',
+				'encode studio | <a href="https://github.com/encode-studio-fe/design-pattern" target="_blank">github</a>',
 		},
 
 		extendFrontmatter: {

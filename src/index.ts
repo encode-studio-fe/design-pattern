@@ -1,1 +1,1 @@
-export * from './factory/index';
+export * from './creational/index';
