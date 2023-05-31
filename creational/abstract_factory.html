@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>抽象工厂模式 | 印客学院</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    <link rel="icon" href="/design-pattern/img/logo.png">
+    <meta name="description" content="设计模式深入浅出">
+    <meta name="keywords" content="设计模式深入浅出">
+    
+    <link rel="preload" href="/design-pattern/assets/css/0.styles.ed4adf79.css" as="style"><link rel="preload" href="/design-pattern/assets/js/app.de21f0f6.js" as="script"><link rel="preload" href="/design-pattern/assets/js/2.917b5265.js" as="script"><link rel="preload" href="/design-pattern/assets/js/7.355d42a1.js" as="script"><link rel="prefetch" href="/design-pattern/assets/js/10.92b2c58c.js"><link rel="prefetch" href="/design-pattern/assets/js/11.4a3e4eec.js"><link rel="prefetch" href="/design-pattern/assets/js/12.56f42032.js"><link rel="prefetch" href="/design-pattern/assets/js/13.f72224a7.js"><link rel="prefetch" href="/design-pattern/assets/js/3.8eeab88a.js"><link rel="prefetch" href="/design-pattern/assets/js/4.6d8faa13.js"><link rel="prefetch" href="/design-pattern/assets/js/5.55c01ae8.js"><link rel="prefetch" href="/design-pattern/assets/js/6.6afdb40e.js"><link rel="prefetch" href="/design-pattern/assets/js/8.80af4be5.js"><link rel="prefetch" href="/design-pattern/assets/js/9.35101770.js">
+    <link rel="stylesheet" href="/design-pattern/assets/css/0.styles.ed4adf79.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/design-pattern/" class="home-link router-link-active"><img src="/design-pattern/img/logo.png" alt="印客学院" class="logo"> <span class="site-name can-hide">印客学院</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/design-pattern/index.html" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="设计模式" class="dropdown-title"><span class="title">设计模式</span> <span class="arrow down"></span></button> <button type="button" aria-label="设计模式" class="mobile-dropdown-title"><span class="title">设计模式</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/design-pattern/creational/index.html" class="nav-link">
+  创建者模式
+</a></li></ul></div></div> <a href="https://github.com/encode-studio-fe/design-pattern" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/design-pattern/index.html" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="设计模式" class="dropdown-title"><span class="title">设计模式</span> <span class="arrow down"></span></button> <button type="button" aria-label="设计模式" class="mobile-dropdown-title"><span class="title">设计模式</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/design-pattern/creational/index.html" class="nav-link">
+  创建者模式
+</a></li></ul></div></div> <a href="https://github.com/encode-studio-fe/design-pattern" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><a href="/design-pattern/creational" class="sidebar-heading clickable router-link-active open"><span>创建者模式</span> <span class="arrow down"></span></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/design-pattern/creational/factory.html" class="sidebar-link">工厂模式</a></li><li><a href="/design-pattern/creational/abstract_factory.html" aria-current="page" class="active sidebar-link">抽象工厂模式</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/design-pattern/creational/abstract_factory.html#结构" class="sidebar-link">结构</a></li><li class="sidebar-sub-header"><a href="/design-pattern/creational/abstract_factory.html#适用场景" class="sidebar-link">适用场景</a></li><li class="sidebar-sub-header"><a href="/design-pattern/creational/abstract_factory.html#优缺点" class="sidebar-link">优缺点</a></li><li class="sidebar-sub-header"><a href="/design-pattern/creational/abstract_factory.html#与其他模式的关系" class="sidebar-link">与其他模式的关系</a></li><li class="sidebar-sub-header"><a href="/design-pattern/creational/abstract_factory.html#代码实现" class="sidebar-link">代码实现</a></li><li class="sidebar-sub-header"><a href="/design-pattern/creational/abstract_factory.html#测试用例" class="sidebar-link">测试用例</a></li></ul></li><li><a href="/design-pattern/creational/builder.html" class="sidebar-link">生成器模式</a></li><li><a href="/design-pattern/creational/prototype.html" class="sidebar-link">原型模式</a></li><li><a href="/design-pattern/creational/singleton.html" class="sidebar-link">单例模式</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="抽象工厂模式"><a href="#抽象工厂模式" class="header-anchor">#</a> 抽象工厂模式</h1> <div class="custom-block tip"><p class="custom-block-title">TIP</p> <p><strong>抽象工厂模式</strong>是一种创建型设计模式， 它能创建一系列相关的对象， 而无需指定其具体类。</p></div> <h2 id="结构"><a href="#结构" class="header-anchor">#</a> 结构</h2> <p><img src="/design-pattern/assets/img/abstract_factory_structure.1fbc2a39.png" alt="abstract_factory_structure"></p> <ol><li>抽象产品 （<code>Abstract Product</code>） 为构成系列产品的一组不同但相关的产品声明接口。</li> <li>具体产品 （<code>Concrete Product</code>） 是抽象产品的多种不同类型实现。 所有变体 （维多利亚/现代） 都必须实现相应的抽象产品 （椅子/沙发）。</li> <li>抽象工厂 （<code>Abstract Factory</code>） 接口声明了一组创建各种抽象产品的方法。</li> <li>具体工厂 （<code>Concrete Factory</code>） 实现抽象工厂的构建方法。 每个具体工厂都对应特定产品变体， 且仅创建此种产品变体。</li> <li>尽管具体工厂会对具体产品进行初始化， 其构建方法签名必须返回相应的抽象产品。 这样， 使用工厂类的客户端代码就不会与工厂创建的特定产品变体耦合。 客户端 （<code>Client</code>） 只需通过抽象接口调用工厂和产品对象， 就能与任何具体工厂/产品变体交互。</li></ol> <h2 id="适用场景"><a href="#适用场景" class="header-anchor">#</a> 适用场景</h2> <ol><li><p>如果代码需要与多个不同系列的相关产品交互， 但是由于无法提前获取相关信息， 或者出于对未来扩展性的考虑， 你不希望代码基于产品的具体类进行构建， 在这种情况下， 你可以使用抽象工厂。</p> <ol><li>抽象工厂为你提供了一个接口， 可用于创建每个系列产品的对象。 只要代码通过该接口创建对象， 那么你就不会生成与应用程序已生成的产品类型不一致的产品。</li></ol></li> <li><p>如果你有一个基于一组抽象方法的类， 且其主要功能因此变得不明确， 那么在这种情况下可以考虑使用抽象工厂模式。</p> <ol><li>在设计良好的程序中， 每个类仅负责一件事。 如果一个类与多种类型产品交互， 就可以考虑将工厂方法抽取到独立的工厂类或具备完整功能的抽象工厂类中。</li></ol></li></ol> <h2 id="优缺点"><a href="#优缺点" class="header-anchor">#</a> 优缺点</h2> <h3 id="优点"><a href="#优点" class="header-anchor">#</a> 优点</h3> <ol><li>你可以确保同一工厂生成的产品相互匹配。</li> <li>你可以避免客户端和具体产品代码的耦合。</li> <li>单一职责原则。 你可以将产品生成代码抽取到同一位置， 使得代码易于维护。</li> <li>开闭原则。 向应用程序中引入新产品变体时， 你无需修改客户端代码。</li></ol> <h3 id="缺点"><a href="#缺点" class="header-anchor">#</a> 缺点</h3> <ol><li>由于采用该模式需要向应用中引入众多接口和类， 代码可能会比之前更加复杂。</li></ol> <h2 id="与其他模式的关系"><a href="#与其他模式的关系" class="header-anchor">#</a> 与其他模式的关系</h2> <ol><li>在许多设计工作的初期都会使用工厂方法模式 （较为简单， 而且可以更方便地通过子类进行定制）， 随后演化为使用抽象工厂模式、 原型模式或生成器模式 （更灵活但更加复杂）。</li> <li>生成器重点关注如何分步生成复杂对象。 抽象工厂专门用于生产一系列相关对象。 抽象工厂会马上返回产品， 生成器则允许你在获取产品前执行一些额外构造步骤。</li> <li>抽象工厂模式通常基于一组工厂方法， 但你也可以使用原型模式来生成这些类的方法。</li> <li>当只需对客户端代码隐藏子系统创建对象的方式时， 你可以使用抽象工厂来代替外观模式。</li> <li>你可以将抽象工厂和桥接模式搭配使用。 如果由桥接定义的抽象只能与特定实现合作， 这一模式搭配就非常有用。 在这种情况下， 抽象工厂可以对这些关系进行封装， 并且对客户端代码隐藏其复杂性。</li> <li>抽象工厂、 生成器和原型都可以用单例模式来实现。</li></ol> <h2 id="代码实现"><a href="#代码实现" class="header-anchor">#</a> 代码实现</h2> <div class="language-typescript extra-class"><pre class="language-typescript"><code><span class="token keyword">interface</span> <span class="token class-name">AbstractFactory</span> <span class="token punctuation">{</span>
+	<span class="token function">createProductA</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> AbstractProductA<span class="token punctuation">;</span>
+
+	<span class="token function">createProductB</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> AbstractProductB<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">ConcreteFactory1</span> <span class="token keyword">implements</span> <span class="token class-name">AbstractFactory</span> <span class="token punctuation">{</span>
+	<span class="token keyword">public</span> <span class="token function">createProductA</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> AbstractProductA <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">ConcreteProductA1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+
+	<span class="token keyword">public</span> <span class="token function">createProductB</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> AbstractProductB <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">ConcreteProductB1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">ConcreteFactory2</span> <span class="token keyword">implements</span> <span class="token class-name">AbstractFactory</span> <span class="token punctuation">{</span>
+	<span class="token keyword">public</span> <span class="token function">createProductA</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> AbstractProductA <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">ConcreteProductA2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+
+	<span class="token keyword">public</span> <span class="token function">createProductB</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> AbstractProductB <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">ConcreteProductB2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">interface</span> <span class="token class-name">AbstractProductA</span> <span class="token punctuation">{</span>
+	<span class="token function">usefulFunctionA</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">ConcreteProductA1</span> <span class="token keyword">implements</span> <span class="token class-name">AbstractProductA</span> <span class="token punctuation">{</span>
+	<span class="token keyword">public</span> <span class="token function">usefulFunctionA</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">string</span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> <span class="token string">'the product A1.'</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">ConcreteProductA2</span> <span class="token keyword">implements</span> <span class="token class-name">AbstractProductA</span> <span class="token punctuation">{</span>
+	<span class="token keyword">public</span> <span class="token function">usefulFunctionA</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">string</span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> <span class="token string">'the product A2.'</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">interface</span> <span class="token class-name">AbstractProductB</span> <span class="token punctuation">{</span>
+	<span class="token function">usefulFunctionB</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+
+	<span class="token function">anotherUsefulFunctionB</span><span class="token punctuation">(</span>collaborator<span class="token operator">:</span> AbstractProductA<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">ConcreteProductB1</span> <span class="token keyword">implements</span> <span class="token class-name">AbstractProductB</span> <span class="token punctuation">{</span>
+	<span class="token keyword">public</span> <span class="token function">usefulFunctionB</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">string</span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> <span class="token string">'The result of the product B1.'</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+
+	<span class="token keyword">public</span> <span class="token function">anotherUsefulFunctionB</span><span class="token punctuation">(</span>collaborator<span class="token operator">:</span> AbstractProductA<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">string</span> <span class="token punctuation">{</span>
+		<span class="token keyword">const</span> result <span class="token operator">=</span> collaborator<span class="token punctuation">.</span><span class="token function">usefulFunctionA</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">return</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">The result of the B1 collaborating with </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>result<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">ConcreteProductB2</span> <span class="token keyword">implements</span> <span class="token class-name">AbstractProductB</span> <span class="token punctuation">{</span>
+	<span class="token keyword">public</span> <span class="token function">usefulFunctionB</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">string</span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> <span class="token string">'The result of the product B2.'</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+
+	<span class="token keyword">public</span> <span class="token function">anotherUsefulFunctionB</span><span class="token punctuation">(</span>collaborator<span class="token operator">:</span> AbstractProductA<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">string</span> <span class="token punctuation">{</span>
+		<span class="token keyword">const</span> result <span class="token operator">=</span> collaborator<span class="token punctuation">.</span><span class="token function">usefulFunctionA</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">return</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">The result of the B2 collaborating with </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>result<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token punctuation">{</span>
+	AbstractFactory<span class="token punctuation">,</span>
+	ConcreteFactory1<span class="token punctuation">,</span>
+	ConcreteFactory2<span class="token punctuation">,</span>
+	AbstractProductA<span class="token punctuation">,</span>
+	ConcreteProductA1<span class="token punctuation">,</span>
+	ConcreteProductA2<span class="token punctuation">,</span>
+	AbstractProductB<span class="token punctuation">,</span>
+	ConcreteProductB2<span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="测试用例"><a href="#测试用例" class="header-anchor">#</a> 测试用例</h2> <div class="language-typescript extra-class"><pre class="language-typescript"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> ConcreteFactory1<span class="token punctuation">,</span> ConcreteFactory2 <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'../index'</span><span class="token punctuation">;</span>
+
+<span class="token function">describe</span><span class="token punctuation">(</span><span class="token string">'abstract factory pattern'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+	<span class="token function">it</span><span class="token punctuation">(</span><span class="token string">'abstract factory concrete creator 1'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+		<span class="token keyword">const</span> factory1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ConcreteFactory1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+		<span class="token keyword">const</span> productA <span class="token operator">=</span> factory1<span class="token punctuation">.</span><span class="token function">createProductA</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">const</span> productB <span class="token operator">=</span> factory1<span class="token punctuation">.</span><span class="token function">createProductB</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+		<span class="token function">expect</span><span class="token punctuation">(</span>productB<span class="token punctuation">.</span><span class="token function">usefulFunctionB</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toBe</span><span class="token punctuation">(</span><span class="token string">'The result of the product B1.'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token function">expect</span><span class="token punctuation">(</span>productB<span class="token punctuation">.</span><span class="token function">anotherUsefulFunctionB</span><span class="token punctuation">(</span>productA<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toBe</span><span class="token punctuation">(</span>
+			<span class="token string">'The result of the B1 collaborating with the product A1.'</span>
+		<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token function">it</span><span class="token punctuation">(</span><span class="token string">'abstract factory concrete creator 1'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+		<span class="token keyword">const</span> factory1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ConcreteFactory2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+		<span class="token keyword">const</span> productA <span class="token operator">=</span> factory1<span class="token punctuation">.</span><span class="token function">createProductA</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">const</span> productB <span class="token operator">=</span> factory1<span class="token punctuation">.</span><span class="token function">createProductB</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+		<span class="token function">expect</span><span class="token punctuation">(</span>productB<span class="token punctuation">.</span><span class="token function">usefulFunctionB</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toBe</span><span class="token punctuation">(</span><span class="token string">'The result of the product B2.'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token function">expect</span><span class="token punctuation">(</span>productB<span class="token punctuation">.</span><span class="token function">anotherUsefulFunctionB</span><span class="token punctuation">(</span>productA<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toBe</span><span class="token punctuation">(</span>
+			<span class="token string">'The result of the B2 collaborating with the product A2.'</span>
+		<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/design-pattern/creational/factory.html" class="prev">
+        工厂模式
+      </a></span> <span class="next"><a href="/design-pattern/creational/builder.html">
+        生成器模式
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/design-pattern/assets/js/app.de21f0f6.js" defer></script><script src="/design-pattern/assets/js/2.917b5265.js" defer></script><script src="/design-pattern/assets/js/7.355d42a1.js" defer></script>
+  </body>
+</html>
