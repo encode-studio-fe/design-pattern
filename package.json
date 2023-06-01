@@ -10,7 +10,7 @@
     "init": "rm -rf node_modules && pnpm install",
     "dev": "tsup src/index.ts --format esm,cjs --watch --dts",
     "build": "rm -rf dist && tsup src/index.ts --format esm,cjs --dts",
-    "docs:types": "typedoc",
+    "docs:type": "typedoc",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
     "deploy": "bash deploy.sh",

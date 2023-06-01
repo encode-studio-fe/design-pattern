@@ -14,7 +14,10 @@ export default defineConfig4CustomTheme({
 			{ text: '首页', link: '/index.md' },
 			{
 				text: '设计模式',
-				items: [{ text: '创建者模式', link: '/creational/index.md' }],
+				items: [
+					{ text: '创建者模式', link: '/creational/index.md' },
+					{ text: '结构型模式', link: '/structural/index.md' },
+				],
 			},
 		],
 		sidebar: [
@@ -41,6 +44,24 @@ export default defineConfig4CustomTheme({
 					{
 						title: '单例模式',
 						path: '/creational/singleton.md',
+					},
+				],
+			},
+			{
+				title: '结构型模式',
+				path: '/structural',
+				children: [
+					{
+						title: '适配器模式',
+						path: '/structural/adapter.md',
+					},
+					{
+						title: '桥接模式',
+						path: '/structural/bridge.md',
+					},
+					{
+						title: '组合模式',
+						path: '/structural/composite.md',
 					},
 				],
 			},
