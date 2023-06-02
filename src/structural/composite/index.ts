@@ -1,17 +1,17 @@
-abstract class Component {
-	protected parent!: Component | null;
+abstract class CompositeComponent {
+	protected parent!: CompositeComponent | null;
 
-	public setParent(parent: Component | null) {
+	public setParent(parent: CompositeComponent | null) {
 		this.parent = parent;
 	}
 
-	public getParent(): Component | null {
+	public getParent(): CompositeComponent | null {
 		return this.parent;
 	}
 
-	public add(component: Component): void {}
+	public add(component: CompositeComponent): void {}
 
-	public remove(component: Component): void {}
+	public remove(component: CompositeComponent): void {}
 
 	public isComposite(): boolean {
 		return false;
@@ -20,21 +20,21 @@ abstract class Component {
 	public abstract operation(): string;
 }
 
-class Leaf extends Component {
+class Leaf extends CompositeComponent {
 	public operation(): string {
 		return 'Leaf';
 	}
 }
 
-class Composite extends Component {
-	protected children: Component[] = [];
+class Composite extends CompositeComponent {
+	protected children: CompositeComponent[] = [];
 
-	public add(component: Component): void {
+	public add(component: CompositeComponent): void {
 		this.children.push(component);
 		component.setParent(this);
 	}
 
-	public remove(component: Component): void {
+	public remove(component: CompositeComponent): void {
 		const componentIndex = this.children.indexOf(component);
 		this.children.splice(componentIndex, 1);
 
@@ -55,4 +55,4 @@ class Composite extends Component {
 	}
 }
 
-export { Component, Leaf, Composite };
+export { CompositeComponent, Leaf, Composite };

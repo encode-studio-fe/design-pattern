@@ -63,6 +63,22 @@ export default defineConfig4CustomTheme({
 						title: '组合模式',
 						path: '/structural/composite.md',
 					},
+					{
+						title: '装饰模式',
+						path: '/structural/decorator.md',
+					},
+					{
+						title: '外观模式',
+						path: '/structural/facade.md',
+					},
+					{
+						title: '享元模式',
+						path: '/structural/flyweight.md',
+					},
+					{
+						title: '代理模式',
+						path: '/structural/proxy.md',
+					},
 				],
 			},
 		],

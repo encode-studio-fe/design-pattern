@@ -1,4 +1,4 @@
-import { Component, Leaf, Composite } from '../index';
+import { Leaf, Composite } from '../index';
 
 describe('composite pattern', () => {
 	it('composite concrete 1', () => {
