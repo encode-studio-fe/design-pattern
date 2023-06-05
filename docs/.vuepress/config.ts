@@ -17,6 +17,7 @@ export default defineConfig4CustomTheme({
 				items: [
 					{ text: '创建者模式', link: '/creational/index.md' },
 					{ text: '结构型模式', link: '/structural/index.md' },
+					{ text: '行为模式', link: '/behavioral/index.md' },
 				],
 			},
 		],
@@ -78,6 +79,32 @@ export default defineConfig4CustomTheme({
 					{
 						title: '代理模式',
 						path: '/structural/proxy.md',
+					},
+				],
+			},
+			{
+				title: '行为模式',
+				path: '/behavioral',
+				children: [
+					{
+						title: '责任链模式',
+						path: '/behavioral/responsibility.md',
+					},
+					{
+						title: '命令模式',
+						path: '/behavioral/command.md',
+					},
+					{
+						title: '迭代器模式',
+						path: '/behavioral/iterator.md',
+					},
+					{
+						title: '中介者模式',
+						path: '/behavioral/mediator.md',
+					},
+					{
+						title: '备忘录模式',
+						path: '/behavioral/memento.md',
 					},
 				],
 			},
