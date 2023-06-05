@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>责任链模式 | 印客学院</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    <link rel="icon" href="/design-pattern/img/logo.png">
+    <meta name="description" content="设计模式深入浅出">
+    <meta name="keywords" content="设计模式深入浅出">
+    
+    <link rel="preload" href="/design-pattern/assets/css/0.styles.ed4adf79.css" as="style"><link rel="preload" href="/design-pattern/assets/js/app.c5837f5d.js" as="script"><link rel="preload" href="/design-pattern/assets/js/2.87c55b2d.js" as="script"><link rel="preload" href="/design-pattern/assets/js/12.e4cd9b0b.js" as="script"><link rel="prefetch" href="/design-pattern/assets/js/10.09fcd684.js"><link rel="prefetch" href="/design-pattern/assets/js/11.2c0a60d5.js"><link rel="prefetch" href="/design-pattern/assets/js/13.e2e85962.js"><link rel="prefetch" href="/design-pattern/assets/js/14.77f4c8de.js"><link rel="prefetch" href="/design-pattern/assets/js/15.bdbe88d9.js"><link rel="prefetch" href="/design-pattern/assets/js/16.c93a16f5.js"><link rel="prefetch" href="/design-pattern/assets/js/17.8f0ac95a.js"><link rel="prefetch" href="/design-pattern/assets/js/18.97946bbf.js"><link rel="prefetch" href="/design-pattern/assets/js/19.9a2df0b1.js"><link rel="prefetch" href="/design-pattern/assets/js/20.0c56a87c.js"><link rel="prefetch" href="/design-pattern/assets/js/21.fa885a2e.js"><link rel="prefetch" href="/design-pattern/assets/js/22.58280c1b.js"><link rel="prefetch" href="/design-pattern/assets/js/23.7d96885f.js"><link rel="prefetch" href="/design-pattern/assets/js/24.eb250086.js"><link rel="prefetch" href="/design-pattern/assets/js/25.81aa5aa0.js"><link rel="prefetch" href="/design-pattern/assets/js/26.51549590.js"><link rel="prefetch" href="/design-pattern/assets/js/27.5bc5ec09.js"><link rel="prefetch" href="/design-pattern/assets/js/3.5df15920.js"><link rel="prefetch" href="/design-pattern/assets/js/4.1678dc1d.js"><link rel="prefetch" href="/design-pattern/assets/js/5.09261db1.js"><link rel="prefetch" href="/design-pattern/assets/js/6.22f7e7d7.js"><link rel="prefetch" href="/design-pattern/assets/js/7.fc595223.js"><link rel="prefetch" href="/design-pattern/assets/js/8.77b29604.js"><link rel="prefetch" href="/design-pattern/assets/js/9.3c9fc99c.js">
+    <link rel="stylesheet" href="/design-pattern/assets/css/0.styles.ed4adf79.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/design-pattern/" class="home-link router-link-active"><img src="/design-pattern/img/logo.png" alt="印客学院" class="logo"> <span class="site-name can-hide">印客学院</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/design-pattern/index.html" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="设计模式" class="dropdown-title"><span class="title">设计模式</span> <span class="arrow down"></span></button> <button type="button" aria-label="设计模式" class="mobile-dropdown-title"><span class="title">设计模式</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/design-pattern/creational/index.html" class="nav-link">
+  创建者模式
+</a></li><li class="dropdown-item"><!----> <a href="/design-pattern/structural/index.html" class="nav-link">
+  结构型模式
+</a></li><li class="dropdown-item"><!----> <a href="/design-pattern/behavioral/index.html" class="nav-link">
+  行为模式
+</a></li></ul></div></div> <a href="https://github.com/encode-studio-fe/design-pattern" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/design-pattern/index.html" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="设计模式" class="dropdown-title"><span class="title">设计模式</span> <span class="arrow down"></span></button> <button type="button" aria-label="设计模式" class="mobile-dropdown-title"><span class="title">设计模式</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/design-pattern/creational/index.html" class="nav-link">
+  创建者模式
+</a></li><li class="dropdown-item"><!----> <a href="/design-pattern/structural/index.html" class="nav-link">
+  结构型模式
+</a></li><li class="dropdown-item"><!----> <a href="/design-pattern/behavioral/index.html" class="nav-link">
+  行为模式
+</a></li></ul></div></div> <a href="https://github.com/encode-studio-fe/design-pattern" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><a href="/design-pattern/creational" class="sidebar-heading clickable"><span>创建者模式</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/design-pattern/structural" class="sidebar-heading clickable"><span>结构型模式</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/design-pattern/behavioral" class="sidebar-heading clickable router-link-active open"><span>行为模式</span> <span class="arrow down"></span></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/design-pattern/behavioral/responsibility.html" aria-current="page" class="active sidebar-link">责任链模式</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/design-pattern/behavioral/responsibility.html#结构" class="sidebar-link">结构</a></li><li class="sidebar-sub-header"><a href="/design-pattern/behavioral/responsibility.html#适用场景" class="sidebar-link">适用场景</a></li><li class="sidebar-sub-header"><a href="/design-pattern/behavioral/responsibility.html#优缺点" class="sidebar-link">优缺点</a></li><li class="sidebar-sub-header"><a href="/design-pattern/behavioral/responsibility.html#与其他模式的关系" class="sidebar-link">与其他模式的关系</a></li><li class="sidebar-sub-header"><a href="/design-pattern/behavioral/responsibility.html#代码实现" class="sidebar-link">代码实现</a></li><li class="sidebar-sub-header"><a href="/design-pattern/behavioral/responsibility.html#测试用例" class="sidebar-link">测试用例</a></li></ul></li><li><a href="/design-pattern/behavioral/command.html" class="sidebar-link">命令模式</a></li><li><a href="/design-pattern/behavioral/iterator.html" class="sidebar-link">迭代器模式</a></li><li><a href="/design-pattern/behavioral/mediator.html" class="sidebar-link">中介者模式</a></li><li><a href="/design-pattern/behavioral/memento.html" class="sidebar-link">备忘录模式</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="责任链模式"><a href="#责任链模式" class="header-anchor">#</a> 责任链模式</h1> <div class="custom-block tip"><p class="custom-block-title">TIP</p> <p><strong>责任链模式</strong>是一种行为设计模式， 允许你将请求沿着处理者链进行发送。 收到请求后， 每个处理者均可对请求进行处理， 或将其传递给链上的下个处理者。</p></div> <h2 id="结构"><a href="#结构" class="header-anchor">#</a> 结构</h2> <p><img src="/design-pattern/assets/img/responsibility_structure.679cd64b.png" alt="responsibility_structure"></p> <ol><li>处理者 （<code>Handler</code>） 声明了所有具体处理者的通用接口。 该接口通常仅包含单个方法用于请求处理， 但有时其还会包含一个设置链上下个处理者的方法。</li> <li>基础处理者 （<code>Base Handler</code>） 是一个可选的类， 你可以将所有处理者共用的样本代码放置在其中。通常情况下， 该类中定义了一个保存对于下个处理者引用的成员变量。 客户端可通过将处理者传递给上个处理者的构造函数或设定方法来创建链。 该类还可以实现默认的处理行为： 确定下个处理者存在后再将请求传递给它。</li> <li>具体处理者 （<code>Concrete Handlers</code>） 包含处理请求的实际代码。 每个处理者接收到请求后， 都必须决定是否进行处理， 以及是否沿着链传递请求。处理者通常是独立且不可变的， 需要通过构造函数一次性地获得所有必要地数据。</li> <li>客户端 （<code>Client</code>） 可根据程序逻辑一次性或者动态地生成链。 值得注意的是， 请求可发送给链上的任意一个处理者， 而非必须是第一个处理者。</li></ol> <h2 id="适用场景"><a href="#适用场景" class="header-anchor">#</a> 适用场景</h2> <ol><li><p>当程序需要使用不同方式处理不同种类请求， 而且请求类型和顺序预先未知时， 可以使用责任链模式。</p> <ol><li>该模式能将多个处理者连接成一条链。 接收到请求后， 它会 “询问” 每个处理者是否能够对其进行处理。 这样所有处理者都有机会来处理请求。</li></ol></li> <li><p>当必须按顺序执行多个处理者时， 可以使用该模式。</p> <ol><li>无论你以何种顺序将处理者连接成一条链， 所有请求都会严格按照顺序通过链上的处理者。</li></ol></li> <li><p>如果所需处理者及其顺序必须在运行时进行改变， 可以使用责任链模式。</p> <ol><li>如果在处理者类中有对引用成员变量的设定方法， 你将能动态地插入和移除处理者， 或者改变其顺序。</li></ol></li></ol> <h2 id="优缺点"><a href="#优缺点" class="header-anchor">#</a> 优缺点</h2> <h3 id="优点"><a href="#优点" class="header-anchor">#</a> 优点</h3> <ol><li>你可以控制请求处理的顺序。</li> <li>单一职责原则。 你可对发起操作和执行操作的类进行解耦。</li> <li>开闭原则。 你可以在不更改现有代码的情况下在程序中新增处理者。</li></ol> <h3 id="缺点"><a href="#缺点" class="header-anchor">#</a> 缺点</h3> <ol><li>部分请求可能未被处理。</li></ol> <h2 id="与其他模式的关系"><a href="#与其他模式的关系" class="header-anchor">#</a> 与其他模式的关系</h2> <ol><li>责任链模式、 命令模式、 中介者模式和观察者模式用于处理请求发送者和接收者之间的不同连接方式：
+<ol><li>责任链按照顺序将请求动态传递给一系列的潜在接收者， 直至其中一名接收者对请求进行处理。</li> <li>命令在发送者和请求者之间建立单向连接。</li> <li>中介者清除了发送者和请求者之间的直接连接， 强制它们通过一个中介对象进行间接沟通。</li> <li>观察者允许接收者动态地订阅或取消接收请求。</li></ol></li> <li>责任链通常和组合模式结合使用。 在这种情况下， 叶组件接收到请求后， 可以将请求沿包含全体父组件的链一直传递至对象树的底部。</li> <li>责任链的管理者可使用命令模式实现。 在这种情况下， 你可以对由请求代表的同一个上下文对象执行许多不同的操作。还有另外一种实现方式， 那就是请求自身就是一个命令对象。 在这种情况下， 你可以对由一系列不同上下文连接而成的链执行相同的操作。</li> <li>责任链和装饰模式的类结构非常相似。 两者都依赖递归组合将需要执行的操作传递给一系列对象。 但是， 两者有几点重要的不同之处。</li> <li>责任链的管理者可以相互独立地执行一切操作， 还可以随时停止传递请求。 另一方面， 各种装饰可以在遵循基本接口的情况下扩展对象的行为。 此外， 装饰无法中断请求的传递。</li></ol> <h2 id="代码实现"><a href="#代码实现" class="header-anchor">#</a> 代码实现</h2> <div class="language-typescript extra-class"><pre class="language-typescript"><code><span class="token keyword">interface</span> <span class="token class-name">Handler</span> <span class="token punctuation">{</span>
+	<span class="token function">setNext</span><span class="token punctuation">(</span>handler<span class="token operator">:</span> Handler<span class="token punctuation">)</span><span class="token operator">:</span> Handler<span class="token punctuation">;</span>
+
+	<span class="token function">handle</span><span class="token punctuation">(</span>request<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">AbstractHandler</span> <span class="token keyword">implements</span> <span class="token class-name">Handler</span> <span class="token punctuation">{</span>
+	<span class="token keyword">private</span> nextHandler<span class="token operator">:</span> Handler<span class="token punctuation">;</span>
+
+	<span class="token keyword">public</span> <span class="token function">setNext</span><span class="token punctuation">(</span>handler<span class="token operator">:</span> Handler<span class="token punctuation">)</span><span class="token operator">:</span> Handler <span class="token punctuation">{</span>
+		<span class="token keyword">this</span><span class="token punctuation">.</span>nextHandler <span class="token operator">=</span> handler<span class="token punctuation">;</span>
+
+		<span class="token keyword">return</span> handler<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+
+	<span class="token keyword">public</span> <span class="token function">handle</span><span class="token punctuation">(</span>request<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">string</span> <span class="token punctuation">{</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>nextHandler<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			<span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>nextHandler<span class="token punctuation">.</span><span class="token function">handle</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+
+		<span class="token keyword">return</span> <span class="token string">''</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">MonkeyHandler</span> <span class="token keyword">extends</span> <span class="token class-name">AbstractHandler</span> <span class="token punctuation">{</span>
+	<span class="token keyword">public</span> <span class="token function">handle</span><span class="token punctuation">(</span>request<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">string</span> <span class="token punctuation">{</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span>request <span class="token operator">===</span> <span class="token string">'Banana'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			<span class="token keyword">return</span> request<span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+		<span class="token keyword">return</span> <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">handle</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">SquirrelHandler</span> <span class="token keyword">extends</span> <span class="token class-name">AbstractHandler</span> <span class="token punctuation">{</span>
+	<span class="token keyword">public</span> <span class="token function">handle</span><span class="token punctuation">(</span>request<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">string</span> <span class="token punctuation">{</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span>request <span class="token operator">===</span> <span class="token string">'Nut'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			<span class="token keyword">return</span> request<span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+		<span class="token keyword">return</span> <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">handle</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">DogHandler</span> <span class="token keyword">extends</span> <span class="token class-name">AbstractHandler</span> <span class="token punctuation">{</span>
+	<span class="token keyword">public</span> <span class="token function">handle</span><span class="token punctuation">(</span>request<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">string</span> <span class="token punctuation">{</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span>request <span class="token operator">===</span> <span class="token string">'MeatBall'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			<span class="token keyword">return</span> request<span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+		<span class="token keyword">return</span> <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">handle</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token punctuation">{</span> Handler<span class="token punctuation">,</span> AbstractHandler<span class="token punctuation">,</span> MonkeyHandler<span class="token punctuation">,</span> SquirrelHandler<span class="token punctuation">,</span> DogHandler <span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="测试用例"><a href="#测试用例" class="header-anchor">#</a> 测试用例</h2> <div class="language-typescript extra-class"><pre class="language-typescript"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> MonkeyHandler<span class="token punctuation">,</span> SquirrelHandler<span class="token punctuation">,</span> DogHandler <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'../index'</span><span class="token punctuation">;</span>
+
+<span class="token function">describe</span><span class="token punctuation">(</span><span class="token string">'responsibility pattern'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+	<span class="token function">it</span><span class="token punctuation">(</span><span class="token string">'responsibility concrete creator'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+		<span class="token keyword">const</span> list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token keyword">as</span> <span class="token builtin">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+		<span class="token keyword">const</span> monkey <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MonkeyHandler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">const</span> squirrel <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SquirrelHandler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">const</span> dog <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DogHandler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+		monkey<span class="token punctuation">.</span><span class="token function">setNext</span><span class="token punctuation">(</span>squirrel<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setNext</span><span class="token punctuation">(</span>dog<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+		<span class="token keyword">const</span> foods <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'Nut'</span><span class="token punctuation">,</span> <span class="token string">'Banana'</span><span class="token punctuation">,</span> <span class="token string">'Cup of coffee'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+		<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> food <span class="token keyword">of</span> foods<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			<span class="token keyword">const</span> result <span class="token operator">=</span> monkey<span class="token punctuation">.</span><span class="token function">handle</span><span class="token punctuation">(</span>food<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token keyword">if</span> <span class="token punctuation">(</span>result<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+				list<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token punctuation">}</span>
+		<span class="token punctuation">}</span>
+		<span class="token function">expect</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toStrictEqual</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'Nut'</span><span class="token punctuation">,</span> <span class="token string">'Banana'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/design-pattern/structural/proxy.html" class="prev">
+        代理模式
+      </a></span> <span class="next"><a href="/design-pattern/behavioral/command.html">
+        命令模式
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/design-pattern/assets/js/app.c5837f5d.js" defer></script><script src="/design-pattern/assets/js/2.87c55b2d.js" defer></script><script src="/design-pattern/assets/js/12.e4cd9b0b.js" defer></script>
+  </body>
+</html>
