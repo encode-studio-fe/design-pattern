@@ -4,6 +4,7 @@
 		"target": "ES5",
 		"moduleResolution": "node",
 		"esModuleInterop": true,
+		"lib": ["ESNEXT", "dom"],
 		"downlevelIteration": true,
 		"sourceMap": true,
 		"baseUrl": ".",

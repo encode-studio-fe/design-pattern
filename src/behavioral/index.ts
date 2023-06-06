@@ -3,3 +3,8 @@ export * from './command/index';
 export * from './iterator/index';
 export * from './mediator/index';
 export * from './memento/index';
+export * from './observer/index';
+export * from './state/index';
+export * from './strategy/index';
+export * from './template/index';
+export * from './visitor/index';

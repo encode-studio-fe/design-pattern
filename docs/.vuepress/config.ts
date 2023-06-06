@@ -106,6 +106,26 @@ export default defineConfig4CustomTheme({
 						title: '备忘录模式',
 						path: '/behavioral/memento.md',
 					},
+					{
+						title: '观察者模式',
+						path: '/behavioral/observer.md',
+					},
+					{
+						title: '状态模式',
+						path: '/behavioral/state.md',
+					},
+					{
+						title: '策略模式',
+						path: '/behavioral/strategy.md',
+					},
+					{
+						title: '模板方法模式',
+						path: '/behavioral/template.md',
+					},
+					{
+						title: '访问者模式',
+						path: '/behavioral/visitor.md',
+					},
 				],
 			},
 		],
